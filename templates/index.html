@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Netflix Movie Recommender</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<nav>
+    <h2>NETFLIX RECOMMENDER</h2>
+</nav>
+
+<div class="container">
+    <h1>Find Similar Movies 🎬</h1>
+
+    <form method="POST">
+        <input type="text" name="movie" placeholder="Search movie or genre..." required>
+        <button type="submit">Recommend</button>
+    </form>
+
+    <div class="results">
+        {% for movie, poster in recommendations %}
+            <div class="card">
+                <img src="{{ poster }}" alt="{{ movie }}"><img src="{{ poster }}" 
+                alt="{{ movie }}" 
+                onerror="this.src='https://via.placeholder.com/300x450?text=No+Image';">
+
+                <p>{{ movie }}</p>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+</body>
+</html>
